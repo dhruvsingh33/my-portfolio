@@ -100,11 +100,7 @@
     <link rel="preload" href="img/avatar.png" as="image">
     <link rel="preload" href="img/about.png" as="image">
 
-<<<<<<< HEAD
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-=======
-<!--     <link rel="preconnect" href="https://fonts.googleapis.com">
->>>>>>> upstream/main
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap" rel="stylesheet">
   </head>
@@ -135,12 +131,39 @@
                         </a>
                     </div>
                 </div>
-                <button class="md:hidden text-white">
+                <button id="mobileMenuButton" class="md:hidden text-white">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-dark-primary transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <button id="closeMenuButton" class="absolute top-4 right-4 text-white">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+            <a href="#about" class="text-xl text-dark-text-secondary hover:text-white">About</a>
+            <a href="#skills" class="text-xl text-dark-text-secondary hover:text-white">Skills</a>
+            <a href="#projects" class="text-xl text-dark-text-secondary hover:text-white">Projects</a>
+            <a href="#events" class="text-xl text-dark-text-secondary hover:text-white">Events</a>
+            <a href="#contact" class="text-xl text-dark-text-secondary hover:text-white">Contact</a>
+            <a href="#" class="px-4 py-2 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:from-gray-600 hover:to-gray-800 transition-all">Resume</a>
+            <a href="https://www.youtube.com/@DhruvSingh013" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:from-gray-600 hover:to-gray-800 transition-all">YouTube</a>
+            <div class="flex items-center space-x-6 mt-4">
+                <a href="https://github.com/dhruvsingh33" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/dhruv-singh-93871026b" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://x.com/drv_singh_" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="X (Twitter)">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section id="hero" class="min-h-screen flex items-center pt-20">
@@ -153,9 +176,12 @@
                     <p class="text-xl text-dark-text-secondary">
                         Full-Stack Developer | Blockchain & FinTech Enthusiast | Open Source Contributor | Freelancer
                     </p>
-                    <div class="flex space-x-4">
+                    <div class="flex items-center space-x-4">
                         <a href="#about" class="px-8 py-3 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:from-gray-600 hover:to-gray-800 transition-all">
                             Know More
+                        </a>
+                        <a href="https://github.com/dhruvsingh33" target="_blank" class="text-3xl text-dark-text-secondary hover:text-white transition-colors" title="GitHub">
+                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
@@ -587,13 +613,40 @@
         });
 
         // Mobile Menu Toggle
-        const menuButton = document.querySelector('button.md\\:hidden');
-        const mobileMenu = document.createElement('div');
-        mobileMenu.className = 'fixed inset-0 bg-dark-primary transform translate-x-full transition-transform duration-300 ease-in-out';
-        document.body.appendChild(mobileMenu);
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const closeMenuButton = document.getElementById('closeMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        let isMenuOpen = false;
 
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('translate-x-full');
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = ''; // Restore scrolling when menu is closed
+            }
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        closeMenuButton.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu && isMenuOpen) {
+                toggleMenu();
+            }
         });
     </script>
 
