@@ -65,6 +65,13 @@
                             accent: '#1a1a1a',
                             text: '#ffffff',
                             'text-secondary': '#a0a0a0'
+                        },
+                        light: {
+                            primary: '#ffffff',
+                            secondary: '#f3f4f6',
+                            accent: '#e5e7eb',
+                            text: '#1f2937',
+                            'text-secondary': '#4b5563'
                         }
                     },
                     animation: {
@@ -103,36 +110,55 @@
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap" rel="stylesheet">
+
+    <style>
+        .gradient-text {
+            background: linear-gradient(to right, #000000, #404040, #606060);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .dark .gradient-text {
+            background: linear-gradient(to right, #ffffff, #c0c0c0, #808080);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
   </head>
 
-  <body class="min-h-screen">
+  <body class="min-h-screen bg-light-primary dark:bg-dark-primary text-light-text dark:text-dark-text transition-colors duration-200">
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-dark-primary/80 backdrop-blur-sm border-b border-dark-accent">
+    <nav class="fixed w-full z-50 bg-light-primary/80 dark:bg-dark-primary/80 backdrop-blur-sm border-b border-light-accent dark:border-dark-accent">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-bold gradient-text" style="font-family: 'Bonheur Royale', cursive;">Dhruv Singh</a>
                 <div class="hidden md:flex items-center space-x-6">
-                    <a href="#experience" class="nav-link text-dark-text-secondary hover:text-white">Experience</a>
-                    <a href="#projects" class="nav-link text-dark-text-secondary hover:text-white">Projects</a>
-                    <a href="#skills" class="nav-link text-dark-text-secondary hover:text-white">Skills</a>
-                    <a href="#events" class="nav-link text-dark-text-secondary hover:text-white">Events</a>
-                    <a href="#about" class="nav-link text-dark-text-secondary hover:text-white">About</a>
-                    <a href="#contact" class="nav-link text-dark-text-secondary hover:text-white">Contact</a>
+                    <a href="#experience" class="nav-link text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Experience</a>
+                    <a href="#projects" class="nav-link text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Projects</a>
+                    <a href="#skills" class="nav-link text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Skills</a>
+                    <a href="#events" class="nav-link text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Events</a>
+                    <a href="#about" class="nav-link text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">About</a>
+                    <a href="#contact" class="nav-link text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Contact</a>
                     <a href="#" class="px-4 py-2 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:from-gray-600 hover:to-gray-800 transition-all">Resume</a>
                     <a href="https://www.youtube.com/@DhruvSingh013" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:from-gray-600 hover:to-gray-800 transition-all">YouTube</a>
-                    <div class="flex items-center space-x-4 ml-4 border-l border-dark-accent pl-4">
-                        <a href="https://github.com/dhruvsingh33" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="GitHub">
+                    <div class="flex items-center space-x-4 ml-4 border-l border-light-accent dark:border-dark-accent pl-4">
+                        <a href="https://github.com/dhruvsingh33" target="_blank" class="text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="GitHub">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/dhruv-singh-93871026b" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="LinkedIn">
+                        <a href="https://www.linkedin.com/in/dhruv-singh-93871026b" target="_blank" class="text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://x.com/drv_singh_" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="X (Twitter)">
+                        <a href="https://x.com/drv_singh_" target="_blank" class="text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="X (Twitter)">
                             <i class="fab fa-twitter"></i>
                         </a>
+                        <button id="themeToggle" class="text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="Toggle Theme">
+                            <i class="fas fa-sun hidden dark:block"></i>
+                            <i class="fas fa-moon block dark:hidden"></i>
+                        </button>
                     </div>
                 </div>
-                <button id="mobileMenuButton" class="md:hidden text-white">
+                <button id="mobileMenuButton" class="md:hidden text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -140,38 +166,45 @@
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="fixed inset-0 bg-dark-primary transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
-        <div class="flex flex-col items-center justify-center h-full space-y-8">
-            <button id="closeMenuButton" class="absolute top-4 right-4 text-white">
+    <div id="mobileMenu" class="fixed inset-0 bg-light-primary dark:bg-dark-primary transform translate-x-full transition-transform duration-300 ease-in-out z-50 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 ">
+            <button id="mobileThemeToggle" class="text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="Toggle Theme">
+                <i class="fas fa-sun hidden dark:block"></i>
+                <i class="fas fa-moon block dark:hidden"></i>
+            </button>
+            <button id="closeMenuButton" class="absolute top-4 right-4 text-light-text dark:text-dark-text">
                 <i class="fas fa-times text-2xl"></i>
             </button>
-            <a href="#about" class="text-xl text-dark-text-secondary hover:text-white">About</a>
-            <a href="#skills" class="text-xl text-dark-text-secondary hover:text-white">Skills</a>
-            <a href="#projects" class="text-xl text-dark-text-secondary hover:text-white">Projects</a>
-            <a href="#events" class="text-xl text-dark-text-secondary hover:text-white">Events</a>
-            <a href="#contact" class="text-xl text-dark-text-secondary hover:text-white">Contact</a>
+            
+            <a href="#Experience" class="text-xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Experience</a>
+            <a href="#projects" class="text-xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Projects</a>
+            <a href="#skills" class="text-xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Skills</a>
+            <a href="#events" class="text-xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Events</a>
+            <a href="#about" class="text-xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">About</a>
+            <a href="#contact" class="text-xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">Contact</a>
             <a href="#" class="px-4 py-2 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:from-gray-600 hover:to-gray-800 transition-all">Resume</a>
             <a href="https://www.youtube.com/@DhruvSingh013" target="_blank" class="px-4 py-2 rounded-full bg-gradient-to-r from-gray-700 to-gray-900 text-white hover:from-gray-600 hover:to-gray-800 transition-all">YouTube</a>
             <div class="flex items-center space-x-6 mt-4">
-                <a href="https://github.com/dhruvsingh33" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="GitHub">
+                <a href="https://github.com/dhruvsingh33" target="_blank" class="text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/dhruv-singh-93871026b" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/dhruv-singh-93871026b" target="_blank" class="text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://x.com/drv_singh_" target="_blank" class="text-2xl text-dark-text-secondary hover:text-white transition-colors" title="X (Twitter)">
+                <a href="https://x.com/drv_singh_" target="_blank" class="text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="X (Twitter)">
                     <i class="fab fa-twitter"></i>
                 </a>
+                
             </div>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center pt-20">
+    <section id="hero" class="min-h-screen flex items-center pt-20 bg-light-primary dark:bg-dark-primary">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 animate-fade-in">
-                    <h1 class="text-5xl md:text-6xl font-bold">
+                    <h1 class="text-5xl md:text-6xl font-bold text-light-text dark:text-dark-text">
                         Hi, I'm <span class="gradient-text">Dhruv Singh</span>
                     </h1>
                     <p class="text-xl text-dark-text-secondary">
@@ -193,111 +226,105 @@
         </div>
     </section>
 
-
-
-
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-dark-secondary text-white">
+    <section id="projects" class="py-20 bg-light-secondary dark:bg-dark-secondary">
         <div class="container mx-auto px-4">
-          <h2 class="text-4xl font-bold gradient-text text-center mb-12">Projects</h2>
+            <h2 class="text-4xl font-bold text-light-text dark:text-dark-text text-center mb-12">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="bg-light-primary dark:bg-dark-primary p-4 rounded-lg border border-light-accent dark:border-gray-700 flex gap-4">
+                    <img src="./img/saasproject.jpg" alt="AI SaaS Dashboard" class="w-24 h-24 rounded object-cover">
+                    <div>
+                        <h3 class="text-xl font-bold text-light-text dark:text-dark-text">AI SaaS Platform</h3>
+                        <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
+                            <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Next.js</span>
+                            <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Tailwind</span>
+                            <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Stripe</span>
+                            <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">OpenAI</span>
+                        </div>
+                        <div class="flex gap-4 text-sm">
+                            <a href="https://github.com/your-repo-link" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">GitHub</a>
+                            <a href="https://live-demo-link.com" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
       
-          <div class="grid md:grid-cols-2 gap-6">
-            <!-- Project 1 -->
-            <div class="bg-dark-primary p-4 rounded-lg border border-gray-700 flex gap-4">
-              <img src="./img/saasproject.jpg" alt="AI SaaS Dashboard" class="w-24 h-24 rounded object-cover">
-              <div>
-                <h3 class="text-xl font-bold">AI SaaS Dashboard</h3>
-                <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
-                  <span class="border px-2 py-1 rounded">Next.js</span>
-                  <span class="border px-2 py-1 rounded">Tailwind</span>
-                  <span class="border px-2 py-1 rounded">Stripe</span>
-                  <span class="border px-2 py-1 rounded">OpenAI</span>
+                <!-- Project 2 -->
+                <div class="bg-light-primary dark:bg-dark-primary p-4 rounded-lg border border-light-accent dark:border-gray-700 flex gap-4">
+                  <img src="./img/twitterproject.jpg" alt="Decentralized Twitter" class="w-24 h-24 rounded object-cover">
+                  <div>
+                    <h3 class="text-xl font-bold text-light-text dark:text-dark-text">Decentralized Twitter</h3>
+                    <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Solidity</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">React</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Hardhat</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Ether.js</span>
+                    </div>
+                    <div class="flex gap-4 text-sm">
+                      <a href="https://github.com/your-repo-link" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">GitHub</a>
+                      <a href="https://live-demo-link.com" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">Live Demo</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex gap-4 text-sm">
-                  <a href="https://github.com/your-repo-link" class="underline" target="_blank">GitHub</a>
-                  <a href="https://live-demo-link.com" class="underline" target="_blank">Live Demo</a>
-                </div>
-              </div>
-            </div>
       
-            <!-- Project 2 -->
-            <div class="bg-dark-primary p-4 rounded-lg border border-gray-700 flex gap-4">
-              <img src="./img/twitterproject.jpg" alt="Decentralized Twitter" class="w-24 h-24 rounded object-cover">
-              <div>
-                <h3 class="text-xl font-bold">Decentralized Twitter</h3>
-                <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
-                  <span class="border px-2 py-1 rounded">Solidity</span>
-                  <span class="border px-2 py-1 rounded">React</span>
-                  <span class="border px-2 py-1 rounded">Hardhat</span>
-                  <span class="border px-2 py-1 rounded">Ether.js</span>
+                <!-- Project 3 -->
+                <div class="bg-light-primary dark:bg-dark-primary p-4 rounded-lg border border-light-accent dark:border-gray-700 flex gap-4">
+                  <img src="./img/uberclone.jpg" alt="Uber Clone" class="w-24 h-24 rounded object-cover">
+                  <div>
+                    <h3 class="text-xl font-bold text-light-text dark:text-dark-text">Uber Clone</h3>
+                    <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Flutter</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Firebase</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Google Maps</span>
+                    </div>
+                    <div class="flex gap-4 text-sm">
+                      <a href="https://github.com/your-repo-link" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">GitHub</a>
+                      <a href="/apk/uber-clone.apk" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" download>Download APK</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex gap-4 text-sm">
-                  <a href="https://github.com/your-repo-link" class="underline" target="_blank">GitHub</a>
-                  <a href="https://live-demo-link.com" class="underline" target="_blank">Live Demo</a>
-                </div>
-              </div>
-            </div>
       
-            <!-- Project 3 -->
-            <div class="bg-dark-primary p-4 rounded-lg border border-gray-700 flex gap-4">
-              <img src="./img/uberclone.jpg" alt="Uber Clone" class="w-24 h-24 rounded object-cover">
-              <div>
-                <h3 class="text-xl font-bold">Uber Clone</h3>
-                <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
-                  <span class="border px-2 py-1 rounded">Flutter</span>
-                  <span class="border px-2 py-1 rounded">Firebase</span>
-                  <span class="border px-2 py-1 rounded">Google Maps</span>
+                <!-- Project 4 -->
+                <div class="bg-light-primary dark:bg-dark-primary p-4 rounded-lg border border-light-accent dark:border-gray-700 flex gap-4">
+                  <img src="./img/nftproject.jpg" alt="NFT Marketplace" class="w-24 h-24 rounded object-cover">
+                  <div>
+                    <h3 class="text-xl font-bold text-light-text dark:text-dark-text">NFT Marketplace</h3>
+                    <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Solidity</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">IPFS</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">React</span>
+                    </div>
+                    <div class="flex gap-4 text-sm">
+                      <a href="https://github.com/your-repo-link" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">GitHub</a>
+                      <a href="https://live-demo-link.com" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">Live Demo</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex gap-4 text-sm">
-                  <a href="https://github.com/your-repo-link" class="underline" target="_blank">GitHub</a>
-                  <a href="/apk/uber-clone.apk" class="underline" download>Download APK</a>
-                </div>
-              </div>
-            </div>
       
-            <!-- Project 4 -->
-            <div class="bg-dark-primary p-4 rounded-lg border border-gray-700 flex gap-4">
-              <img src="./img/nftproject.jpg" alt="NFT Marketplace" class="w-24 h-24 rounded object-cover">
-              <div>
-                <h3 class="text-xl font-bold">NFT Marketplace</h3>
-                <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
-                  <span class="border px-2 py-1 rounded">Solidity</span>
-                  <span class="border px-2 py-1 rounded">IPFS</span>
-                  <span class="border px-2 py-1 rounded">React</span>
+                <!-- Project 5 -->
+                <div class="bg-light-primary dark:bg-dark-primary p-4 rounded-lg border border-light-accent dark:border-gray-700 flex gap-4">
+                  <img src="./img/aijob.jpg" alt="AI Job Board" class="w-24 h-24 rounded object-cover">
+                  <div>
+                    <h3 class="text-xl font-bold text-light-text dark:text-dark-text">AI Job Board</h3>
+                    <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">Next.js</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">MongoDB</span>
+                      <span class="border border-light-accent dark:border-gray-700 px-2 py-1 rounded text-light-text-secondary dark:text-dark-text-secondary">OpenAI</span>
+                    </div>
+                    <div class="flex gap-4 text-sm">
+                      <a href="https://github.com/your-repo-link" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">GitHub</a>
+                      <a href="https://live-demo-link.com" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text underline" target="_blank">Live Demo</a>
+                    </div>
+                  </div>
                 </div>
-                <div class="flex gap-4 text-sm">
-                  <a href="https://github.com/your-repo-link" class="underline" target="_blank">GitHub</a>
-                  <a href="https://live-demo-link.com" class="underline" target="_blank">Live Demo</a>
-                </div>
-              </div>
             </div>
-      
-            <!-- Project 5 -->
-            <div class="bg-dark-primary p-4 rounded-lg border border-gray-700 flex gap-4">
-              <img src="./img/aijob.jpg" alt="AI Job Board" class="w-24 h-24 rounded object-cover">
-              <div>
-                <h3 class="text-xl font-bold">AI Job Board</h3>
-                <div class="flex flex-wrap gap-2 text-sm mt-2 mb-3">
-                  <span class="border px-2 py-1 rounded">Next.js</span>
-                  <span class="border px-2 py-1 rounded">MongoDB</span>
-                  <span class="border px-2 py-1 rounded">OpenAI</span>
-                </div>
-                <div class="flex gap-4 text-sm">
-                  <a href="https://github.com/your-repo-link" class="underline" target="_blank">GitHub</a>
-                  <a href="https://live-demo-link.com" class="underline" target="_blank">Live Demo</a>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
       
-      
-
     <!-- Skills Section -->
     <section id="skills" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold gradient-text text-center mb-12">Skills</h2>
+            <h2 class="text-4xl font-bold text-light-text dark:text-dark-text text-center mb-12">Skills</h2>
             <div class="flex flex-wrap justify-center gap-6">
                 <i class="devicon-cplusplus-plain colored text-5xl" title="C++"></i>
                 <i class="devicon-python-plain colored text-5xl" title="Python"></i>
@@ -335,49 +362,47 @@
         </div>
     </section>
         
-    
-
     <!-- Events Section -->
     <section id="events" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold gradient-text text-center mb-12">Events/Workshops</h2>
+            <h2 class="text-4xl font-bold text-light-text dark:text-dark-text text-center mb-12">Events/Workshops</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">GitHub Galaxy 2024</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">GitHub Galaxy 2024</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Explored the latest trends in DevOps, Actions, and secure coding practices at GitHub's flagship virtual event.
                     </p>
-                    <a href="https://githubgalaxy.com/" target="_blank" class="mt-4 inline-block text-white hover:text-gray-300">
+                    <a href="https://githubgalaxy.com/" target="_blank" class="mt-4 inline-block text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">
                         Learn More →
                     </a>
                 </div>
 
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">MLH Web3 Hack Week</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">MLH Web3 Hack Week</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Participated in sessions focused on building dApps using Solidity, Hardhat, and NFT standards.
                     </p>
-                    <a href="https://mlh.io/seasons/2024/events" target="_blank" class="mt-4 inline-block text-white hover:text-gray-300">
+                    <a href="https://mlh.io/seasons/2024/events" target="_blank" class="mt-4 inline-block text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">
                         Learn More →
                     </a>
                 </div>
 
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">Figma Config 2024</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">Figma Config 2024</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Attended design system talks, auto-layout masterclasses, and sessions on cross-functional collaboration in product design.
                     </p>
-                    <a href="https://config.figma.com/" target="_blank" class="mt-4 inline-block text-white hover:text-gray-300">
+                    <a href="https://config.figma.com/" target="_blank" class="mt-4 inline-block text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">
                         Learn More →
                     </a>
                 </div>
 
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">Google Cloud Next '24</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">Google Cloud Next '24</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Gained insights on deploying scalable AI/ML pipelines using Vertex AI and integrating GCP with modern backend stacks.
                     </p>
-                    <a href="https://cloud.withgoogle.com/next" target="_blank" class="mt-4 inline-block text-white hover:text-gray-300">
+                    <a href="https://cloud.withgoogle.com/next" target="_blank" class="mt-4 inline-block text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">
                         Learn More →
                     </a>
                 </div>
@@ -386,48 +411,48 @@
     </section>
 
     <!-- Achievements Section -->
-    <section id="awards" class="py-20 bg-dark-secondary">
+    <section id="awards" class="py-20 bg-light-secondary dark:bg-dark-secondary">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold gradient-text text-center mb-12">Achievements</h2>
+            <h2 class="text-4xl font-bold text-light-text dark:text-dark-text text-center mb-12">Achievements</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">Hack This Fall 4.0</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">Hack This Fall 4.0</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Participated in Hack This Fall 4.0, a 48-hour hackathon focused on building impactful open-source projects.
                     </p>
                 </div>
 
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">Google Cloud Arcade Challenge</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">Google Cloud Arcade Challenge</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Completed multiple quests in the Google Cloud Arcade Challenge and earned skill badges in Cloud Essentials and Kubernetes.
                     </p>
                 </div>
 
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">Flipkart Grid 5.0 (Software Track)</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">Flipkart Grid 5.0 (Software Track)</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Participated in Flipkart Grid 5.0 national-level engineering competition – tackled a real-world eCommerce software challenge.
                     </p>
                 </div>
 
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">ETHIndia 2023</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">ETHIndia 2023</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Participated in ETHIndia 2023 — built a decentralized tool using Ethereum & IPFS in one of the world's largest Ethereum hackathons.
                     </p>
                 </div>
 
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">Smart India Hackathon 2023</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">Smart India Hackathon 2023</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Shortlisted and participated in SIH 2023 software edition under the theme of Healthcare & Biomedical Devices.
                     </p>
                 </div>
 
-                <div class="card p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-2">Code For GovTech 2023</h3>
-                    <p class="text-dark-text-secondary">
+                <div class="bg-light-primary dark:bg-dark-primary p-6 rounded-lg border border-light-accent dark:border-gray-700">
+                    <h3 class="text-xl font-bold mb-2 text-light-text dark:text-dark-text">Code For GovTech 2023</h3>
+                    <p class="text-light-text-secondary dark:text-dark-text-secondary">
                         Participated in C4GT 2023 — worked on open-source contributions aimed at improving public digital infrastructure.
                     </p>
                 </div>
@@ -436,7 +461,7 @@
     </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 bg-dark-secondary">
+        <section id="about" class="py-20 bg-light-secondary dark:bg-dark-secondary">
             <div class="container mx-auto px-4">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="animate-fade-in">
@@ -444,7 +469,7 @@
     
                     </div>
                     <div class="space-y-6 animate-slide-up max-w-3xl mx-auto">
-                      <h2 class="text-4xl font-bold gradient-text text-center">About Me</h2>
+                      <h2 class="text-4xl font-bold text-light-text dark:text-dark-text text-center">About Me</h2>
                     
                       <p class="text-dark-text-secondary text-justify">
                         Hi, I'm a Full Stack Developer and open-source contributor with a growing focus on Blockchain and Web3 technologies. Currently pursuing my B.Tech in Computer Science and Design, I blend my foundations in software engineering with a deep curiosity for decentralized systems and future-ready tech.
@@ -466,29 +491,29 @@
     <!-- Appreciate my Work Section -->
     <section id="blogs" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold gradient-text text-center mb-12">Appreciate my Work</h2>
+            <h2 class="text-4xl font-bold text-light-text dark:text-dark-text text-center mb-12">Appreciate my Work</h2>
             <div class="max-w-2xl mx-auto">
-                <div class="card p-8 rounded-lg space-y-6">
+                <div class="bg-light-primary dark:bg-dark-primary p-8 rounded-lg space-y-6 border border-light-accent dark:border-gray-700">
                     <div class="space-y-4">
-                        <h3 class="text-2xl font-bold">Dhruv Singh:</h3>
-                        <p class="text-dark-text-secondary">
-                            <a href="https://www.youtube.com/@DhruvSingh013" class="text-white hover:text-gray-300">
+                        <h3 class="text-2xl font-bold text-light-text dark:text-dark-text">Dhruv Singh:</h3>
+                        <p class="text-light-text-secondary dark:text-dark-text-secondary">
+                            <a href="https://www.youtube.com/@DhruvSingh013" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">
                                 Subscribe to my YouTube Channel →
                             </a>
                         </p>
                     </div>
 
                     <div class="space-y-4">
-                        <h3 class="text-2xl font-bold">Blogs:</h3>
+                        <h3 class="text-2xl font-bold text-light-text dark:text-dark-text">Blogs:</h3>
                         <div class="space-y-2">
-                            <p class="text-dark-text-secondary">
-                                Medium: <a href="paste-link-here" class="text-white hover:text-gray-300">@dhruvsingh</a>
+                            <p class="text-light-text-secondary dark:text-dark-text-secondary">
+                                Medium: <a href="paste-link-here" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">@dhruvsingh</a>
                             </p>
-                            <p class="text-dark-text-secondary">
-                                GeeksForGeeks: <a href="paste-link-here" class="text-white hover:text-gray-300">dhruvsingh</a>
+                            <p class="text-light-text-secondary dark:text-dark-text-secondary">
+                                GeeksForGeeks: <a href="paste-link-here" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">dhruvsingh</a>
                             </p>
-                            <p class="text-dark-text-secondary">
-                                Leetcode: <a href="paste-link-here" class="text-white hover:text-gray-300">dhruvsingh</a>
+                            <p class="text-light-text-secondary dark:text-dark-text-secondary">
+                                Leetcode: <a href="paste-link-here" class="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text">dhruvsingh</a>
                             </p>
                         </div>
                     </div>
@@ -498,9 +523,9 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-dark-secondary">
+    <section id="contact" class="py-20 bg-light-secondary dark:bg-dark-secondary">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold gradient-text text-center mb-12">Get in Touch</h2>
+            <h2 class="text-4xl font-bold text-light-text dark:text-dark-text text-center mb-12">Get in Touch</h2>
             <div class="max-w-2xl mx-auto">
                 <form action="https://formsubmit.co/dhruvsingh5003@gmail.com" method="POST" class="space-y-6">
                     <input type="hidden" name="_captcha" value="false">
@@ -509,17 +534,17 @@
                     
                     <div>
                         <input type="text" name="name" required placeholder="Your Name" 
-                            class="w-full px-4 py-3 rounded-lg bg-dark-accent border border-dark-accent text-white placeholder-dark-text-secondary focus:outline-none focus:border-gray-600">
+                            class="w-full px-4 py-3 rounded-lg bg-light-accent dark:bg-dark-accent border border-light-accent dark:border-dark-accent text-light-text dark:text-dark-text placeholder-light-text-secondary dark:placeholder-dark-text-secondary focus:outline-none focus:border-gray-600">
                     </div>
                     
                     <div>
                         <input type="email" name="email" required placeholder="Your Email" 
-                            class="w-full px-4 py-3 rounded-lg bg-dark-accent border border-dark-accent text-white placeholder-dark-text-secondary focus:outline-none focus:border-gray-600">
+                            class="w-full px-4 py-3 rounded-lg bg-light-accent dark:bg-dark-accent border border-light-accent dark:border-dark-accent text-light-text dark:text-dark-text placeholder-light-text-secondary dark:placeholder-dark-text-secondary focus:outline-none focus:border-gray-600">
                     </div>
                     
                     <div>
                         <textarea name="message" rows="5" required placeholder="Your Message" 
-                            class="w-full px-4 py-3 rounded-lg bg-dark-accent border border-dark-accent text-white placeholder-dark-text-secondary focus:outline-none focus:border-gray-600"></textarea>
+                            class="w-full px-4 py-3 rounded-lg bg-light-accent dark:bg-dark-accent border border-light-accent dark:border-dark-accent text-light-text dark:text-dark-text placeholder-light-text-secondary dark:placeholder-dark-text-secondary focus:outline-none focus:border-gray-600"></textarea>
                     </div>
                     
                     <div class="text-center">
@@ -534,24 +559,24 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 bg-dark-primary">
+    <footer class="py-12 bg-light-primary dark:bg-dark-primary">
         <div class="container mx-auto px-4">
             <div class="text-center space-y-8">
                 <div class="flex justify-center space-x-6">
-                    <a href="https://github.com/dhruvsingh33" target="_blank" class="social-link text-2xl text-dark-text-secondary hover:text-white transition-colors" title="GitHub">
+                    <a href="https://github.com/dhruvsingh33" target="_blank" class="social-link text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://www.instagram.com/drv_singh_" target="_blank" class="social-link text-2xl text-dark-text-secondary hover:text-white transition-colors" title="Instagram">
+                    <a href="https://www.instagram.com/drv_singh_" target="_blank" class="social-link text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/dhruv-singh-93871026b" target="_blank" class="social-link text-2xl text-dark-text-secondary hover:text-white transition-colors" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/dhruv-singh-93871026b" target="_blank" class="social-link text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="https://x.com/drv_singh_" target="_blank" class="social-link text-2xl text-dark-text-secondary hover:text-white transition-colors" title="X (Twitter)">
+                    <a href="https://x.com/drv_singh_" target="_blank" class="social-link text-2xl text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text dark:hover:text-dark-text transition-colors" title="X (Twitter)">
                         <i class="fab fa-twitter"></i>
                     </a>
                 </div>
-                <p class="text-dark-text-secondary">
+                <p class="text-light-text-secondary dark:text-dark-text-secondary">
                     &copy; 2024 Dhruv Singh. All rights reserved.
                 </p>
             </div>
@@ -620,6 +645,32 @@
                 toggleMenu();
             }
         });
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        
+        // Check for saved theme preference or use system preference
+        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Toggle theme function
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+
+        // Add click event listeners to both toggle buttons
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
     </script>
 
     <!-- Custom JavaScript -->
